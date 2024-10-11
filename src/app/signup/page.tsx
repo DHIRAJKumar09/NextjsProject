@@ -35,7 +35,7 @@ const page = () => {
     } else {
       setButtonDisable(true);
     }
-  });
+  },[user]);
   return (
     <div className="flex flex-col bg-black text-white items-center justify-center min-h-screen py-2">
       <h1>{loading ? "processing" : "signup"}</h1>
