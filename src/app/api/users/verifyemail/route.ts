@@ -1,35 +1,37 @@
-import {connect} from '@/dbConfig/dbConfig'
+import { connect } from '@/dbConfig/dbConfig';
 import User from '@/models/userModel';
-import { NextRequest,NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
+import { NextRequest, NextResponse } from 'next/server';
 
 connect();
 
-export async function POST(request:NextRequest){
-    try{
-        const reqBody= await  request.json();
-        const {token} = reqBody;
-        console.log(token);
+export async function POST(request: NextRequest) {
+    try {
+        const reqBody = await request.json();
+        const { token } = reqBody;
+        console.log("Token received:", token);
 
-      const user =   await User.findOne({verifToken:token,verifyTokenExpiry:{$gt:Date.now()}});
+        // Correcting property name from verifToken to verifyToken
+        const user = await User.findOne({ verifyToken: token, verifyTokenExpiry: { $gt: Date.now() } });
+        console.log("User found:", user);
 
-      if(!user){
-        return NextResponse.json({error:"Invalid Token"},{status:500})
-      }
-      console.log(user);
+        if (!user) {
+            return NextResponse.json({ error: "Invalid Token" }, { status: 400 });
+        }
 
-      user.isVerified = true;
-      user.verifyToken = undefined;
-      user.verifyTokenExpiry  = undefined;
+        // Verify the user
+        user.isVerified = true;
+        user.verifyToken = undefined;
+        user.verifyTokenExpiry = undefined;
 
-      await user.save();
+        await user.save();
 
-      return NextResponse.json({
-        message:"Email is verified",
-        success:true, 
-      },{status:500});
+        return NextResponse.json({
+            message: "Email is verified",
+            success: true, 
+        }, { status: 200 }); // Change to 200 for success
 
-    }catch(error:any){
-        return NextResponse.json({error:error.message},{status:500});
+    } catch (error: any) {
+        console.error("Error during email verification:", error.message);
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
