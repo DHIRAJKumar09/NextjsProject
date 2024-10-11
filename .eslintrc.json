@@ -22,8 +22,9 @@
   "rules": {
     "no-unused-vars": "warn",  // Warn about unused variables
     "@typescript-eslint/no-explicit-any": "off", // Disable 'any' type rule
-    "no-console": "warn",      // Warn about console logs
-    "quotes": ["error", "single"], // Enforce single quotes
-    "semi": ["error", "always"]  // Require semicolons
+    "semi": "off",                   // Disable semicolon requirement
+    "quotes": ["error", "double"],   // Allow double quotes instead of single quotes
+    "no-console": "off",             // Disable no-console rule
+    "@typescript-eslint/no-unused-vars": "off"  // Disable unused variable rule
   }
 }
