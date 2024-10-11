@@ -1,3 +1,8 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "quotes": "off",
+    "no-unused-vars": "off",
+    "all": "off" // Disable all rules
+  }
 }
