@@ -3,6 +3,7 @@
   "rules": {
     "quotes": "off",
     "no-unused-vars": "off",
-    "all": "off" // Disable all rules
+    "all": "off" ,
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
