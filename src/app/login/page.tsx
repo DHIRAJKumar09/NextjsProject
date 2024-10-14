@@ -38,13 +38,13 @@ const Loginpage = () => {
   },[user]);
   return (
     <div className="flex flex-col bg-black text-white items-center justify-center min-h-screen py-2">
-      <h1>{loading ? "processing" : "signup"}</h1>
+      <h1>{loading ? "processing" : "Welcome to Login Page"}</h1>
       <hr></hr>
       
 
       <label htmlFor="email">Email:</label>
       <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+        className="p-2 border text-black border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
         id="Email"
         value={user.email}
         onChange={(e) => setUser({ ...user, email: e.target.value })}
