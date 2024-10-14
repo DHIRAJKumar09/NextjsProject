@@ -42,7 +42,7 @@ const page = () => {
       <hr></hr>
       <label htmlFor="username">UserName:</label>
       <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+        className="p-2 border text-black border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
         id="username"
         value={user.username}
         onChange={(e) => setUser({ ...user, username: e.target.value })}
@@ -52,7 +52,7 @@ const page = () => {
 
       <label htmlFor="email">Email:</label>
       <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+        className="p-2 border text-black border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
         id="Email"
         value={user.email}
         onChange={(e) => setUser({ ...user, email: e.target.value })}
@@ -60,9 +60,9 @@ const page = () => {
         type="text"
       ></input>
 
-      <label htmlFor="password">UserName:</label>
+      <label htmlFor="password">Password:</label>
       <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+        className="p-2 border text-black border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
         id="password"
         value={user.password}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
